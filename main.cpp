@@ -4,8 +4,6 @@
 #include "phis.h"
 #include <cmath>
 #include <random>
-#include <chrono>
-#include <ctime>
 #include "trie.h"
 #include "InfInt.h"
 #include "SuffixTree.h"
@@ -13,7 +11,6 @@
 
 using namespace std;
 
-auto seed = chrono::high_resolution_clock::now().time_since_epoch().count();
 mt19937 generator(seed);
 
 // fills the text array with random ints
@@ -175,8 +172,6 @@ InfInt suggest_prime(InfInt num)
 
 int main()
 {
-    //auto start = chronho::high_resolution_clock::now();
-
     long long n = 32000;             // user input
     long long b = 16000;           // user input
     int alphabet_size = 128;        // user input
@@ -206,7 +201,7 @@ int main()
     }
     else
     {
-        ifstream in("bookcrossing.txt");
+        ifstream in("test.txt");
         string t;
         string s;
         if (in.is_open())
@@ -238,8 +233,5 @@ int main()
     delete text;
     delete st;
 
-    //auto stop = chrono::high_resolution_clock::now();
-    //auto duration = chrono::duration_cast<chrono::milliseconds>(stop - start);
-    //cout << "Time: " << duration.count() << " milliseconds" << endl;
     return 0;
 }
